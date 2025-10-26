@@ -1,0 +1,24 @@
+# RTX 3090 Quick Test Configuration
+
+# VRAM Stress Test
+vram_test:
+  duration_minutes: 5      # Test duration (5-30 mins)
+  allocation_gb: 20        # VRAM to allocate (10-23 GB)
+
+# Thermal Stress Test
+thermal_test:
+  duration_minutes: 3      # Test duration (3-10 mins)
+  temp_limit_gpu: 85       # GPU temp limit (°C)
+  temp_limit_vram: 95      # VRAM temp limit (°C)
+
+# Performance Benchmark
+performance_test:
+  matrix_size: 8192        # Matrix size for matmul
+  iterations_fp32: 20      # FP32 iterations
+  iterations_fp16: 40      # FP16 iterations
+
+# Expected Performance (RTX 3090 FE)
+expected:
+  fp32_tflops_min: 25      # Minimum FP32 TFLOPS
+  fp16_tflops_min: 75      # Minimum FP16 TFLOPS
+  bandwidth_gbs_min: 600   # Minimum bandwidth GB/s
